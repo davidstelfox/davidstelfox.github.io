@@ -1,0 +1,120 @@
+<!doctype html>
+
+<style type="text/css">
+	.axis path,
+	.axis line {
+	    fill: none;
+	    stroke: black;
+	    shape-rendering: crispEdges;
+	}
+
+	.axis text {
+	    font-family: sans-serif;
+	    font-size: 11px;
+	}
+	
+</style>
+
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+	<script type="text/javascript">
+
+	var width = 1000,
+			height = 500
+
+	var yearScale = d3.scale.linear()
+							.domain([1900, 2015])
+							.range([height-100, 100])
+
+	var dateScale = d3.scale.linear()
+						.domain([3,10])
+						.range([100, width-100])
+
+	var svg = d3.select("body")
+				.append("svg")
+				.attr("width", width)
+				.attr("height", height)
+
+	var colors = d3.scale.ordinal()
+						.domain(["Science Fiction", "Fiction", "Science"])
+						.range(["#77BFA3", "#6F8B8F", "#DEED90"])
+
+	var xAxis = d3.svg.axis()
+					.scale(dateScale)
+					.orient("bottom")
+
+	var yAxis = d3.svg.axis()
+					.scale(yearScale)
+					.orient("left")
+					.ticks(5)
+
+	var yLineData = [{"x": 50, "y": 20}, {"x": 50, "y": 100}];
+	var xLineData = [{"x": 50, "y": 20}, {"x": 150, "y": 20}];
+
+	var yLine = d3.svg.line()
+					.x(function(d) {return d.x})
+					.y(function(d) {return d.y})
+					.interpolate("linear")
+
+	
+
+
+
+
+	d3.json("books.json", function(data){
+
+		svg.selectAll("circle")
+			.data(data)
+			.enter()
+			.append("circle")
+			.attr("cy", function(d) {return yearScale(d.yearPublished)})
+			.attr("cx", function(d) {return dateScale(d.dateStarted)})
+			.attr("r", function(d) {return d.length/10})
+			.attr("fill-opacity", 0.3)
+			.attr("fill", function(d) {return colors(d.genre)})
+			.append("svg:title")
+			.text(function(d) {return d.author + ", " + d.title })
+
+		// svg.append("g")
+		// 	.attr("class", "axis")
+		// 	.call(xAxis)
+
+		svg.append("path")
+			.attr("d", yLine(yLineData))
+			.attr("stroke", "#949494")
+			.attr("stroke-width", 1.5)
+
+		svg.append("path")
+			.attr("d", yLine(xLineData))
+			.attr("stroke", "#949494")
+			.attr("stroke-width", 1.5)
+
+		svg.append("text")
+			.style("fill", "#949494")
+			.style("font-family", "sans-serif")
+			.style("writing-mode", "tb")
+			.attr("x", 36)
+			.attr("y", 20)
+			.text("Published")
+
+		svg.append("text")
+			.style("fill", "#949494")
+			.style("font-family", "sans-serif")
+			.attr("x", 50)
+			.attr("y", 13)
+			.text("Read")
+
+
+
+
+
+
+
+	})
+
+	</script>
+</body>
