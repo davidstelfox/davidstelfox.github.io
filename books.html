@@ -31,8 +31,8 @@
 							.range([height-100, 100])
 
 	var dateScale = d3.scale.linear()
-						.domain([3,10])
-						.range([100, width-100])
+						.domain([1,11])
+						.range([100, width-150])
 
 	var svg = d3.select("body")
 				.append("svg")
@@ -41,7 +41,7 @@
 
 	var colors = d3.scale.ordinal()
 						.domain(["Science Fiction", "Fiction", "Science"])
-						.range(["#77BFA3", "#6F8B8F", "#DEED90"])
+						.range(["#85FFC7", "#297373", "#FF8552"])
 
 	var xAxis = d3.svg.axis()
 					.scale(dateScale)
@@ -60,12 +60,9 @@
 					.y(function(d) {return d.y})
 					.interpolate("linear")
 
-	
 
 
-
-
-	d3.json("books.json", function(data){
+	d3.json("js/books.json", function(data){
 
 		svg.selectAll("circle")
 			.data(data)
@@ -73,11 +70,11 @@
 			.append("circle")
 			.attr("cy", function(d) {return yearScale(d.yearPublished)})
 			.attr("cx", function(d) {return dateScale(d.dateStarted)})
-			.attr("r", function(d) {return d.length/10})
-			.attr("fill-opacity", 0.3)
+			.attr("r", function(d) {return d.length/20})
+			.attr("fill-opacity", 0.8)
 			.attr("fill", function(d) {return colors(d.genre)})
 			.append("svg:title")
-			.text(function(d) {return d.author + ", " + d.title })
+			.text(function(d) {return d.author + ", " + d.title + ", " + d.yearPublished})
 
 		// svg.append("g")
 		// 	.attr("class", "axis")
@@ -107,10 +104,6 @@
 			.attr("x", 50)
 			.attr("y", 13)
 			.text("Read")
-
-
-
-
 
 
 
