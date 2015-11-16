@@ -2,7 +2,49 @@
 
 <html>
 	<body>
-		<h1>Hello world!</h1>
-		<a href="http://stelfad.github.io/acquisitions.html">Tate Acquisitions</a>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+		<script type="text/javascript">
+		var w = 1000, h = 500
+
+		var svg = d3.select("body")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h)
+
+
+		var lineData = [ { "x": 20,   "y": 20},  { "x": 880,  "y": 20}, { "x": 880,  "y": 150},
+							{ "x": 120,  "y": 150}, { "x": 120,  "y": 300}, { "x": 880,  "y": 300}, 
+							{ "x": 880,  "y": 450}, { "x": 20,  "y": 450}]
+  	                
+
+		var line = d3.svg.line()
+					.x(function(d){return d.x; })
+					.y(function(d){return d.y; })
+					.interpolate("monotone");
+
+		var lineGraph = svg.append("path")
+							.attr("d", line(lineData))
+							.attr("stroke", "#d2d2d2")
+							.attr("stroke-width", 8)
+							.attr("fill", "none")
+
+
+		d3.json("project.json", function(d) {
+
+			svg.selectAll("circle")
+				.data(d)
+				.enter()
+				.append("a")
+				.attr("xlink:href", function(d){return d.URL;})
+				.append("circle")
+				.attr("cx", function(d) {return d.xposition; })
+				.attr("cy", function(d) {return d.yposition; })
+				.attr("r", 10)
+				.attr("fill", "#FCCC2E")
+		})
+
+
+		</script>
 	</body>
 </html>
