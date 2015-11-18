@@ -26,7 +26,7 @@
 								.domain([1,95])
 								.range([10,w-10])
 
-	d3.json("acquisitions.json", function(data) {
+	d3.json("data/acquisitions.json", function(data) {
 
 		svg.selectAll("circle")
 			.data(data)
