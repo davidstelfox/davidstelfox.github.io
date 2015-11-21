@@ -10,7 +10,7 @@ title: David Stelfox
 #email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   Blog where I am keeping track on my data visualisation journey. 
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://davidstelfox.github.io" # the base hostname & protocol for your site
 twitter_username: stelfad
 github_username:  davidstelfox
