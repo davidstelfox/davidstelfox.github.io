@@ -1,0 +1,100 @@
+<!doctype HTML>
+
+<style type="text/css">
+	
+	body{
+		font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+		font-size: 24pt;
+		color: #333;
+	}
+
+	p{
+		padding-left: 10px;
+	}
+
+	#linesandlinesandlines{
+		padding-left: 50px;
+	}
+
+	a{
+		color:black;
+		text-decoration: none;
+		padding-left: 10px;
+	}
+
+</style>
+
+<html>
+	
+	<body>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+		<p>play portfolio    /    click the dots</p>
+
+		<div id="linesandlinesandlines"></div>
+
+		<script type="text/javascript">
+		var w = 1000, h = 470
+
+		var svg = d3.select("#linesandlinesandlines")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h)
+
+		var lineScale = d3.scale.linear()
+								.domain([25,250])
+								.range([10,50])
+
+
+		var lineData = [ { "x": 20,   "y": 20},  { "x": 880,  "y": 20}, { "x": 880,  "y": 150},
+							{ "x": 120,  "y": 150}, { "x": 120,  "y": 300}, { "x": 880,  "y": 300}, 
+							{ "x": 880,  "y": 450}, { "x": 20,  "y": 450}]
+  	                
+
+		var line = d3.svg.line()
+					.x(function(d){return d.x; })
+					.y(function(d){return d.y; })
+					.interpolate("monotone");
+
+		var lineGraph = svg.append("path")
+							.attr("d", line(lineData))
+							.attr("stroke", "#d2d2d2")
+							.attr("stroke-width", 8)
+							.attr("fill", "none")
+
+
+		d3.json("pages/data/project.json", function(d) {
+
+			svg.selectAll("circle")
+				.data(d)
+				.enter()
+				.append("a")
+				.attr("xlink:href", function(d){return d.URL;})
+				.append("circle")
+				.attr("cx", function(d) {return d.xposition; })
+				.attr("cy", function(d) {return d.yposition; })
+				.attr("r", function(d) {return lineScale(d.lines); })
+				.attr("fill", "#FCCC2E")
+
+			svg.append("text")
+				.attr("y", 55)
+				.attr("x", 10)
+				.attr("font-size", "10pt")
+				.text("November 2015")
+
+			svg.append("text")
+				.attr("y", 435)
+				.attr("x", 10)
+				.attr("font-size", "10pt")
+				.text("December 2016")			
+
+		})
+
+
+		</script>
+
+		<a href="http://davidstelfox.github.io/blog">process blog</a>
+	
+	</body>
+</html>
