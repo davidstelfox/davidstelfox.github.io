@@ -103,7 +103,7 @@
 
 
 		<script type="text/javascript">
-		var w = 1000, h = 470
+		var w = 1000, h = 500
 
 		var svg = d3.select("#linesandlinesandlines")
 					.append("svg")
@@ -115,9 +115,9 @@
 								.range([10,50])
 
 
-		var lineData = [ { "x": 20,   "y": 20},  { "x": 880,  "y": 20}, { "x": 880,  "y": 150},
-							{ "x": 120,  "y": 150}, { "x": 120,  "y": 300}, { "x": 880,  "y": 300}, 
-							{ "x": 880,  "y": 450}, { "x": 20,  "y": 450}]
+		var lineData = [ { "x": 20,   "y": 20},  { "x": 880,  "y": 20}, { "x": 880,  "y": 170},
+							{ "x": 120,  "y": 170}, { "x": 120,  "y": 320}, { "x": 880,  "y": 320}, 
+							{ "x": 880,  "y": 470}, { "x": 20,  "y": 470}]
   	               
 
 		var line = d3.svg.line()
@@ -148,6 +148,12 @@
 				.attr("cy", function(d) {return d.yposition; })
 				.attr("r", function(d) {return lineScale(d.lines); })
 				.attr("fill", function(d) {return colors(d.language); })
+				.on('mouseover', function(d) {
+					var nodeSelection = d3.select(this).style({fill: ' pink'});
+				})
+				.on('mouseout', function(d) {
+					var nodeDeselection = d3.select(this).style("fill", function(d) {return colors(d.language); })
+				})
 
 			svg.append("text")
 				.attr("y", 55)
@@ -156,7 +162,7 @@
 				.text("November 2015")
 
 			svg.append("text")
-				.attr("y", 420)
+				.attr("y", 440)
 				.attr("x", 10)
 				.attr("font-size", "10pt")
 				.text("December 2016")	

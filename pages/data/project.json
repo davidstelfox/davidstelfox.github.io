@@ -1,5 +1,5 @@
-[{"name": "Tate Aquisitions", "date":"11", "URL":"http://davidstelfox.github.io/pages/acquisitions.html", "language":"D3", "xposition":57, "yposition":20, "lines":26},
-	{"name": "Books", "date":"11", "URL":"http://davidstelfox.github.io/pages/books.html", "language":"D3", "xposition":93, "yposition":20, "lines": 82},
-	{"name": "Imposter", "date":"11", "URL":"", "language":"Imposter","xposition":110, "yposition": 20, "lines": 1},
-	{"name": "Homelessness", "date":"11", "URL":"http://davidstelfox.github.io/pages/homelessness.html", "language":"D3", "xposition":143, "yposition":20, "lines": 34},
-	{"name": "Moves", "date":"11", "URL":"http://davidstelfox.github.io/pages/moves.html", "language":"Map", "xposition":150, "yposition":20, "lines": 5}]
+[{"name": "Tate Aquisitions", "date":"11", "URL":"http://davidstelfox.github.io/pages/acquisitions.html", "language":"D3", "xposition":69, "yposition":20, "lines":26},
+	{"name": "Books", "date":"11", "URL":"http://davidstelfox.github.io/pages/books.html", "language":"D3", "xposition":138, "yposition":20, "lines": 82},
+	{"name": "Imposter", "date":"11", "URL":"", "language":"Imposter","xposition":256, "yposition": 20, "lines": 1},
+	{"name": "Homelessness", "date":"11", "URL":"http://davidstelfox.github.io/pages/homelessness.html", "language":"D3", "xposition":276, "yposition":20, "lines": 34},
+	{"name": "Moves", "date":"11", "URL":"http://davidstelfox.github.io/pages/moves.html", "language":"Map", "xposition":343, "yposition":20, "lines": 5}]
