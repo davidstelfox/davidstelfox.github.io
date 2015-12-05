@@ -8,21 +8,27 @@
 		color: #333;
 	}
 
-	#title{
-		padding-left: 60px;
-		padding-bottom: 20px;
-		float: left;
+
+	#titles{
+		width: 80%;
+		display: block;
+		margin: auto;
 		color: #333;
+	}
+
+	#title{
+		float: left;
 	}
 
 	#blog{
 		float: right;
-		padding-right: 235px;
-		color: #333;
 	}
 
 	#linesandlinesandlines{
-		padding-left: 50px;
+		padding-top: 60px;
+		width: 80%;
+		display: block;
+		margin: auto;
 	}
 
 
@@ -36,14 +42,65 @@
 
 <html>
 	
+	<head>	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	
+
+		<div id="titles">
+		<div id="title"><a href="http://davidstelfox.github.io">play portfolio</a></div>
+		<div id="blog"><a href="http://davidstelfox.github.io/blog">process blog</a></div>	
+		</div>
+	</head>
+
+
 	<body>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-
-		<div id="title">play portfolio / click the dots</div>
-		<div id="blog"><a href="http://davidstelfox.github.io/blog">process blog</a></div>		</div>
-
 		<div id="linesandlinesandlines"></div>
+		<div id="legend"></div>
+
+		<script type="text/javascript">
+
+		var svg = d3.select("#legend")
+					.append("svg")
+					.attr("width", 1000)
+					.attr("height", 60)
+
+
+		var languageData = [ {"language":"D3", "color":"#FCCC2E"}, {"language":"Map", "color":"#48A9A6"}, {"language":"Imposter Syndrome Strikes!", "color":"#EB5D5C"} ];
+
+			var legend = svg.append("g")
+							.attr("class", "legend")
+							.attr("x", 10)
+							.attr("y", 20)
+							.attr("width", 10)
+							.attr("heigt", 20)
+
+				legend.selectAll("g")
+						.data(languageData)
+						.enter()
+						.append("g")
+						.each(function(d,i) {
+							var g = d3.select(this);
+									g.append("circle")
+										.attr("cx", 140)
+										.attr("cy", i* 15 + 20)
+										.attr("r", 5)
+										.attr("width", 10)
+										.attr("height", 10)
+										.style("fill", d.color)
+
+									g.append("text")
+										.attr("x", 150)
+										.attr("y", i* 15 + 25)
+										.attr("width", 10)
+										.attr("height", 20)
+										.text(d.language)
+										.style("font-size", "10pt")
+
+
+						})
+		</script>
+
 
 		<script type="text/javascript">
 		var w = 1000, h = 470
@@ -61,7 +118,7 @@
 		var lineData = [ { "x": 20,   "y": 20},  { "x": 880,  "y": 20}, { "x": 880,  "y": 150},
 							{ "x": 120,  "y": 150}, { "x": 120,  "y": 300}, { "x": 880,  "y": 300}, 
 							{ "x": 880,  "y": 450}, { "x": 20,  "y": 450}]
-  	                
+  	               
 
 		var line = d3.svg.line()
 					.x(function(d){return d.x; })
@@ -73,6 +130,10 @@
 							.attr("stroke", "#d2d2d2")
 							.attr("stroke-width", 8)
 							.attr("fill", "none")
+
+		var colors = d3.scale.ordinal()
+							.domain(["D3", "Imposter", "Map"])
+							.range(["#FCCC2E", "#EB5D5C", "#48A9A6"])
 
 
 		d3.json("pages/data/project.json", function(d) {
@@ -86,7 +147,7 @@
 				.attr("cx", function(d) {return d.xposition; })
 				.attr("cy", function(d) {return d.yposition; })
 				.attr("r", function(d) {return lineScale(d.lines); })
-				.attr("fill", "#FCCC2E")
+				.attr("fill", function(d) {return colors(d.language); })
 
 			svg.append("text")
 				.attr("y", 55)
@@ -95,10 +156,11 @@
 				.text("November 2015")
 
 			svg.append("text")
-				.attr("y", 435)
+				.attr("y", 420)
 				.attr("x", 10)
 				.attr("font-size", "10pt")
-				.text("December 2016")			
+				.text("December 2016")	
+
 
 		})
 

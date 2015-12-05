@@ -8,17 +8,19 @@
 		color: #333;
 	}
 
-	#title{
-		padding-left: 60px;
-		padding-bottom: 20px;
-		float: left;
+	#titles{
+		width: 80%;
+		display: block;
+		margin: auto;
 		color: #333;
+	}
+
+	#title{
+		float: left;
 	}
 
 	#blog{
 		float: right;
-		padding-right: 235px;
-		color: #333;
 	}
 
 	a{
@@ -30,13 +32,18 @@
 </style>
 
 <html>
+
+	<head>	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+		<div id="titles">
+		<div id="title"><a href="http://davidstelfox.github.io">play portfolio</a></div>
+		<div id="blog"><a href="http://davidstelfox.github.io/blog">process blog</a></div>	
+		</div>
+	</head>
 	
 	<body>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-
-		<div id="title"><a href="http://davidstelfox.github.io">play portfolio</a></div>
-		<div id="blog"><a href="http://davidstelfox.github.io/blog">process blog</a></div>	
 
 		<script type="text/javascript">
 		
@@ -44,7 +51,7 @@
 
 		</script>
 
-		
+	
 	
 	</body>
 </html>

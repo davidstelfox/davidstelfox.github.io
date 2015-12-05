@@ -53,8 +53,8 @@
 				.attr("height", height)
 
 	var colors = d3.scale.ordinal()
-						.domain(["Science Fiction", "Fiction", "Science"])
-						.range(["#85FFC7", "#297373", "#FF8552"])
+						.domain(["Fiction", "Learning"])
+						.range(["#85FFC7", "#FF8552"])
 
 	var xAxis = d3.svg.axis()
 					.scale(dateScale)
@@ -84,7 +84,7 @@
 			.attr("cy", function(d) {return yearScale(d.yearPublished)})
 			.attr("cx", function(d) {return dateScale(d.dateStarted)})
 			.attr("r", function(d) {return d.length/20})
-			.attr("fill-opacity", 0.8)
+			.attr("fill-opacity", 0.55)
 			.attr("fill", function(d) {return colors(d.genre)})
 			.append("svg:title")
 			.text(function(d) {return d.author + ", " + d.title + ", " + d.yearPublished})
