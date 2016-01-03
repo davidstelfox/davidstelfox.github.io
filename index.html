@@ -25,7 +25,6 @@
 	}
 
 	#linesandlinesandlines{
-		padding-top: 60px;
 		width: 80%;
 		display: block;
 		margin: auto;
@@ -37,6 +36,35 @@
 		text-decoration: none;
 		padding-left: 10px;
 	}
+
+	p{
+		padding-top: 40pt;
+		padding-left: 15pt;
+		font-size: 12pt;
+		width: 80%;
+		display: block;
+		margin: auto;
+	}
+
+	#link{
+		padding-left: 0pt;
+		color: blue;
+	}
+
+	#second{
+		padding-top: 10pt;
+		padding-bottom: 10pt;
+	}
+
+	#blurb{
+		padding-top: 65px;
+	}
+
+	#footer{
+		font-size: 10pt;
+		padding-top: 10pt;
+	}
+
 
 </style>
 
@@ -54,6 +82,11 @@
 
 
 	<body>
+
+	<p id="blurb">This is an ongoing showcase of my data visualisation and coding learning process. It might make more sense if you read<a id="link" href="http://davidstelfox.github.io/blog/2015/11/20/Journey-Begins.html"> this blog post</a>.</p>
+
+	<p id="second"> Click a circle below to see the visualisation, the colour represents the language or process and the size represents the number of lines of code. If you have any feedback you can email me at stelfoxd (at) gmail.com or find me on <a id="link" href="http://www.twitter.com/stelfad"> Twitter</a>.</p>
+
 
 		<div id="linesandlinesandlines"></div>
 		<div id="legend"></div>
@@ -103,7 +136,7 @@
 
 
 		<script type="text/javascript">
-		var w = 1000, h = 500
+		var w = 1000, h = 550
 
 		var svg = d3.select("#linesandlinesandlines")
 					.append("svg")
@@ -115,9 +148,9 @@
 								.range([10,50])
 
 
-		var lineData = [ { "x": 20,   "y": 20},  { "x": 880,  "y": 20}, { "x": 880,  "y": 170},
-							{ "x": 120,  "y": 170}, { "x": 120,  "y": 320}, { "x": 880,  "y": 320}, 
-							{ "x": 880,  "y": 470}, { "x": 20,  "y": 470}]
+		var lineData = [ { "x": 20,   "y": 80},  { "x": 880,  "y": 80}, { "x": 880,  "y": 230},
+							{ "x": 120,  "y": 230}, { "x": 120,  "y": 380}, { "x": 880,  "y": 380}, 
+							{ "x": 880,  "y": 530}, { "x": 20,  "y": 530}]
   	               
 
 		var line = d3.svg.line()
@@ -149,20 +182,20 @@
 				.attr("r", function(d) {return lineScale(d.lines); })
 				.attr("fill", function(d) {return colors(d.language); })
 				.on('mouseover', function(d) {
-					var nodeSelection = d3.select(this).style({fill: ' pink'});
+					var nodeSelection = d3.select(this).style({fill: '#FF0099'});
 				})
 				.on('mouseout', function(d) {
 					var nodeDeselection = d3.select(this).style("fill", function(d) {return colors(d.language); })
 				})
 
 			svg.append("text")
-				.attr("y", 55)
+				.attr("y", 115)
 				.attr("x", 10)
 				.attr("font-size", "10pt")
 				.text("November 2015")
 
 			svg.append("text")
-				.attr("y", 440)
+				.attr("y", 500)
 				.attr("x", 10)
 				.attr("font-size", "10pt")
 				.text("December 2016")	
@@ -172,6 +205,11 @@
 
 
 		</script>
+
+		<p id="footer">
+		&copy; 2015<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, David Stelfox
+		</p>
+	
 
 		
 	
