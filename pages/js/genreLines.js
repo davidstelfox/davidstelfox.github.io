@@ -10,7 +10,7 @@ var margin = {top: 25, right: 20, bottom: 35, left: 20};
 
 			var y = d3.scale.linear()
 					.domain([0,520])
-					.range([height - margin.top, 0]);
+					.range([height - margin.top - 20, 0]);
 
 		// creates lines on svg based
 			var metalLine = d3.svg.line()
@@ -159,5 +159,11 @@ var margin = {top: 25, right: 20, bottom: 35, left: 20};
 			      .style("fill", "none")
 			      .style("stroke-opacity", 0.6)
 			      .style("stroke-width", strokew);
+
+			      svg.append("text")
+			      		.attr("x", 1 )
+			      		.attr("y", 12 )
+			      		.style("font-size", "10pt")
+			      		.text(110)
 
 			  });

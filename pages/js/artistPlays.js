@@ -21,7 +21,7 @@ var w = 875,
 			.attr("width", function(d) {return xScale(d.Plays)})
 			.attr("height", 20)
 			.style("fill", function(d) {return d.Colour})
-			.style("fill-opacity", 0.8)
+			.style("fill-opacity", 0.6)
 			
 
 		svg1.selectAll("text")
@@ -34,5 +34,14 @@ var w = 875,
 			.style("fill", "white")
 			.style("font-size", "12pt")
 			.style("font-family", "Andale Mono")
+
+		svg1.append("text")
+			.attr("x", 830 )
+			.attr("y", 15 )
+			.text(386)
+			.style("fill", "white")
+			.style("font-size", "12pt")
+			.style("font-family", "Andale Mono")
+
 
 	})
