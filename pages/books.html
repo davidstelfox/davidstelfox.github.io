@@ -25,7 +25,7 @@
 	}
 
 	#books{
-		padding-top: 60px;
+		padding-top: 10px;
 		width: 80%;
 		display: block;
 		margin: auto;
@@ -51,6 +51,15 @@
 	    font-family: sans-serif;
 	    font-size: 11px;
 	}
+
+	p{
+		padding-top: 40pt;
+		padding-left: 15pt;
+		font-size: 12pt;
+		width: 80%;
+		display: block;
+		margin: auto;
+	}
 	
 </style>
 
@@ -63,6 +72,8 @@
 		<div id="blog"><a href="http://davidstelfox.github.io/blog">process blog</a></div>	
 		</div>
 	</head>
+
+	<p>The books I read in 2015. Hover over a circle for more information on the book.</p>
 
 <body>
 
@@ -78,7 +89,7 @@
 							.range([height-100, 100])
 
 	var dateScale = d3.scale.linear()
-						.domain([1,11])
+						.domain([1,13])
 						.range([100, width-150])
 
 	var svg = d3.select("#books")

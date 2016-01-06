@@ -35,6 +35,19 @@
 		padding-top: 20px;
 		}
 
+	p{
+		padding-top: 40pt;
+		padding-left: 15pt;
+		font-size: 12pt;
+		width: 80%;
+		display: block;
+		margin: auto;
+	}
+
+	#footer{
+		font-size: 10pt;
+		padding-top: 10pt;
+	}
 </style>
 
 <html>
@@ -47,10 +60,16 @@
 		<div id="blog"><a href="http://davidstelfox.github.io/blog">process blog</a></div>	
 		</div>
 	</head>
+
+	<p>I spent a year collecting data on my journeys around London using the Moves app. I used Mapbox to visualise these.</p>
 	
 	<body>
 
 		<iframe id="map" width='78%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/stelfad.no5h7n1i/attribution,share.html?access_token=pk.eyJ1Ijoic3RlbGZhZCIsImEiOiJFWXdCTTFZIn0.IiJa_WFbm2JBZMiDB05sUg'></iframe>
 	
 	</body>
+
+	<p id="footer">
+		&copy; 2015<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, David Stelfox
+		</p>
 </html>
