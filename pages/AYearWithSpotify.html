@@ -2,32 +2,6 @@
 
 <style type="text/css">
 	
-	body{
-		font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-		font-size: 24pt;
-		color: #333;
-	}
-
-	#titles{
-		width: 80%;
-		display: block;
-		margin: auto;
-		color: #333;
-	}
-
-	#title{
-		float: left;
-	}
-
-	#blog{
-		float: right;
-	}
-
-	a{
-		color:black;
-		text-decoration: none;
-		padding-left: 10px;
-	}
 
 	.spotify{
 		width: 70%;
@@ -42,6 +16,7 @@
 
 	p{
 		font-size: 18pt;
+		padding-bottom: 5pt;
 	}
 
 	#number{
@@ -49,9 +24,9 @@
 		font-size: 24pt;
 	}
 
-	
-
-
+	#blurb{
+		width: 900px;
+	}
 
 </style>
 
@@ -59,6 +34,8 @@
 
 	<head>	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+			<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<div id="titles">
 		<div id="title"><a href="http://davidstelfox.github.io">play portfolio</a></div>
@@ -71,7 +48,7 @@
 	<div class = "spotify">
 
 	<h2>A Year With Spotify</h2>
-	<p>I pretty much listen to all my music in Spotify nowadays. Here are some charts which show how I listened to music throughout 2015.</p>	
+	<p id="blurb">I pretty much listen to all my music in Spotify nowadays. Here are some charts which show how I listened to music throughout 2015.</p>	
 
 
 	<p>1. How many hours I listened to each month.</p>
