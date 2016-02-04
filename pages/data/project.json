@@ -3,5 +3,6 @@
 	{"name": "Imposter", "date":"20151230", "URL":"", "language":"Imposter","xposition":256, "yposition": 80, "lines": 1},
 	{"name": "Homelessness", "date":"20151201", "URL":"http://davidstelfox.github.io/pages/homelessness.html", "language":"D3", "xposition":276, "yposition":80, "lines": 34},
 	{"name": "Moves", "date":"20151208", "URL":"http://davidstelfox.github.io/pages/moves.html", "language":"Map", "xposition":343, "yposition":80, "lines": 5},
-	{"name": "Spotify", "date":"20160103", "URL":"http://davidstelfox.github.io/pages/ayearwithspotify.html", "language":"D3", "xposition":535, "yposition":80, "lines": 300}
+	{"name": "Spotify", "date":"20160103", "URL":"http://davidstelfox.github.io/pages/ayearwithspotify.html", "language":"D3", "xposition":535, "yposition":80, "lines": 300},
+	{"name": "Temperature", "date":"201601204", "URL":"http://davidstelfox.github.io/pages/temperature.html", "language":"D3", "xposition":763, "yposition":80, "lines": 129}
 	]
