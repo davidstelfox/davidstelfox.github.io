@@ -1,0 +1,106 @@
+<!doctype HTML>
+
+<style type="text/css">
+
+		body{
+			font-family: 'Inconsolata',"Lucida Console","Monaco","DejaVu Sans Mono";
+			font-size: 16pt;
+			color: black;
+			background-color: #FFAC80;
+
+		} 
+
+		#home{
+			text-decoration: none;
+		}
+
+		.spotify{
+		width: 70%;
+		display: block;
+		margin: auto;
+		font-family: 'Andale Mono'; 
+		}
+
+		#number{
+		padding-top: 0pt;
+		font-size: 24pt;
+	}
+
+	#blurb{
+		width: 900px;
+	}	
+
+	a{
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover{
+			color: white;
+		}
+
+		
+
+</style>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+</head>
+
+
+<body>
+
+	<a id="home" href="http://davidstelfox.github.io">Back Home</a>
+
+	<div class = "spotify">
+
+	<h2>A Year With Spotify</h2>
+	<p id="blurb">I pretty much listen to all my music in Spotify nowadays. Here are some charts which show how I listened to music throughout 2015.</p>	
+
+
+	<p>1. How many hours I listened to each month.</p>
+
+
+		<div class="songplays">
+			<script type="text/javascript" src="js/TimeLines.js"></script>
+		</div>
+
+	<p>2. Hours of music listened on a daily basis.</p>
+
+		<div class="dailyplays">
+			<script type="text/javascript" src="js/DailyPlays.js"></script>
+		</div>
+
+	<p>3. How different genres made up my listening habits.</p>
+
+		<div class="genres">
+			<script type="text/javascript" src="js/genres.js"></script>
+		</div>
+
+		<div class="legend">
+			<script type="text/javascript" src="js/legend.js"></script>
+		</div>
+
+	<p>4. How these genres split over the year.</p>
+
+	<div class="genreLines">
+			<script type="text/javascript" src="js/genreLines.js"></script>
+	</div>
+	
+	<p>5. Plays of individual artists and bands.</p>
+
+	<div class="artistPlays">
+			<script type="text/javascript" src="js/artistPlays.js"></script>
+	</div>
+
+	<p>6. Longest (William Basinski's dlp 1.1 at 63 minutes and 32 seconds) vs shortest (Orchid's Chaos Ain't Me at 30 seconds)</p>
+
+	<div class="ShortLong">
+			<script type="text/javascript" src="js/ShortLong.js"></script>
+	</div>
+
+	</div>
+
+</body>

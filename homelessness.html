@@ -1,0 +1,90 @@
+<!doctype HTML>
+
+<style type="text/css">
+
+		body{
+			font-family: 'Inconsolata',"Lucida Console","Monaco","DejaVu Sans Mono";
+			font-size: 16pt;
+			color: black;
+			background-color: #FFAC80;
+			}	
+
+	#grid
+		{
+		padding-top: 40px;
+		display: block;
+		margin: auto;
+		width: 80%;
+		padding-left: 30px;	}
+
+	#text{
+		width:80%;
+		display: block;
+		margin: auto;
+		padding-top:20px;
+	}
+
+
+	#shelter{
+		color: blue;
+		padding-left: 4px;
+			}
+
+			a{
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover{
+			color: white;
+		}
+
+		
+
+</style>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+</head>
+
+
+<body>
+
+	<a id="home" href="http://davidstelfox.github.io">Back Home</a>
+
+	<p id="text">The housing charity Shelter has said that 100,000 children will be homeless this Christmas in the UK. That is 1 in 4 children in school. In a world where we are bombarded with number and statistics it can be hard to put them in context. Each tree in the visualisation below represents 10 children who will be homeless this Christmas. TEN! In 2015, in one of the world's richest nations this should not be happening. Help Shelter to support these children and others who are facing eviction this Christmas by donating <a id="shelter" href="http://england.shelter.org.uk/100khomeless">here</a>.</p>
+
+		<div id = "grid"></div>
+
+		<script type="text/javascript">
+
+		var w = 1000, h = 10000
+
+		
+		var y = d3.scale.linear()
+   				 .range([0,h]);
+		
+   		var range = d3.range(0,10000,1)
+
+		var svg = d3.select("#grid")
+					.selectAll("rect")
+					.data(range)
+					.enter()
+			.append("svg")
+			.attr("class", "rect")
+			.attr("width", 50 )
+			.attr("height", 50)
+			.attr("transform", function(d, i) {return "translate(" + i * 30 + "," + 30 + ")"})
+
+				svg.append("svg:image")
+					.attr("xlink:href", "img/tree.svg")
+					.attr("width", 40)
+					.attr("height", 40)
+		
+
+		</script>
+
+
+</body>

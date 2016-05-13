@@ -1,0 +1,209 @@
+<!doctype html>
+
+<style type="text/css">
+	
+
+		body{
+			font-family: 'Inconsolata',"Lucida Console","Monaco","DejaVu Sans Mono";
+			font-size: 8pt;
+			color: black;
+			background-color: #FFAC80;
+
+		} 
+
+	.filter_options{
+		float: left;
+		width: 400px;
+		padding-top: 30pt;
+	}
+
+	#text{
+		width: 350px;
+		display: block;
+		margin: auto;
+		font-size: 10pt;
+		padding-top: 30pt;
+		padding-left: 50pt;
+	}
+
+	/*#map{
+		float: left;
+	}*/
+
+		a{
+			text-decoration: none;
+			color: black;
+			font-size: 16pt;
+			float:left;
+		}
+
+		a:hover{
+			color: white;
+		}
+
+
+
+
+
+</style>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://d3js.org/d3-queue.v2.min.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+
+
+<body>
+
+	<a id="home" href="http://davidstelfox.github.io">Back Home</a>
+
+  	<div class="filter_options">
+		<input class="filter_button" id="1995" type="checkbox">1995</input>
+		<input class="filter_button" id="1996" type="checkbox">1996</input>
+		<input class="filter_button" id="1997" type="checkbox">1997</input>
+		<input class="filter_button" id="1998" type="checkbox">1998</input>
+		<input class="filter_button" id="1999" type="checkbox">1999</input><br>
+		<input class="filter_button" id="2000" type="checkbox">2000</input>
+		<input class="filter_button" id="2001" type="checkbox">2001</input>
+		<input class="filter_button" id="2002" type="checkbox">2002</input>
+		<input class="filter_button" id="2003" type="checkbox">2003</input>
+		<input class="filter_button" id="2004" type="checkbox">2004</input><br>
+		<input class="filter_button" id="2005" type="checkbox">2005</input>
+		<input class="filter_button" id="2006" type="checkbox">2006</input>
+		<input class="filter_button" id="2007" type="checkbox">2007</input>
+		<input class="filter_button" id="2008" type="checkbox">2008</input>
+		<input class="filter_button" id="2009" type="checkbox">2009</input><br>
+		<input class="filter_button" id="2010" type="checkbox">2010</input>
+		<input class="filter_button" id="2011" type="checkbox">2011</input>
+		<input class="filter_button" id="2012" type="checkbox">2012</input>
+		<input class="filter_button" id="2013" type="checkbox">2013</input>
+		</div>
+
+		<div id = "text">The Heritage Lottery Fund is the UK body which distributes a share of the income from the National Lottery to projects aimed at preserving and making accessible the nation's heritage.</div>
+
+		<div id = "map"></div>
+
+</body>
+
+
+
+<script type="text/javascript">
+	
+	//better way to combine data using queue
+	d3_queue.queue()
+		.defer(d3.json, "data/uk.json")
+		.defer(d3.json, "data/HLF_funding.json")
+		.await(ready);
+
+	var w = 600,
+		h = 750;
+
+	 var svg = d3.select("#map")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h)
+
+
+     var svg1 = d3.select("#map")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h - 30)
+
+
+     var chartColor = "white"
+
+ 
+
+function ready(error, uk, hlf) {
+
+
+			var subunits = topojson.feature(uk, uk.objects.subunits);
+
+			var projection = d3.geo.albers()
+							    .center([0, 54.4])
+							    .rotate([4.4, 0])
+							    .parallels([50, 60])
+							    .scale(3050)
+							    .translate([w / 2, h / 2]);
+		
+			var path = d3.geo.path()
+   						 .projection(projection);
+
+
+   			svg.append("path")
+				    .datum(subunits)
+				    .attr("d", path)
+				    .style("fill", chartColor);
+
+			var circles = svg.selectAll(".symbol")
+							.data(hlf)
+							.enter()
+							.append("circle")
+							.filter(function(d) { return d.year != null ? this : null;;})
+							.attr("class", "symbol")
+							.attr("r", function(d) {return Math.sqrt(d.Funding) / 150})
+							.attr("transform", function(d) {return "translate(" + projection([d.Longitude, d.Latitude]) + ")"; })
+							.style("fill-opacity", 0)
+							.style("fill", "#E83F6F")
+
+		d3.json("data/funding.json", function(d) {
+
+				var squares = svg1.selectAll("rect")
+								.data(d)
+								.enter()
+								.append("rect")
+								.filter(function(d) {return d.year <= 2013})
+								.attr("x", 10 )
+								.attr("y", function(d,i) {return i * 30 })
+								.attr("width", function(d) {return Math.sqrt(d.award) / 100} )
+								.attr("height", 20)
+								.style("fill", chartColor)
+								
+
+				var text =		svg1.selectAll(".words")
+								.data(d)
+								.enter()
+								.append("text")
+								.filter(function(d) {return d.year <= 2013})
+								.attr("class", "words")
+								.attr("x", 15)
+								.attr("y", function(d,i) {return i * 30 + 15 })
+								.text(function(d) {return d.year})
+
+				var formatValue = d3.format(".2s");
+
+				var text1 = svg1.selectAll(".word")
+								.data(d)
+								.enter()
+								.append("text")
+								.attr("class", "word")
+								.attr("x", function(d) {return (Math.sqrt(d.award) / 100) - 20})
+								.attr("y", function(d,i) {return i * 30 + 15 })
+								.text(function(d) {return formatValue(d.award)})
+								.style("fill", "#E83F6F")
+								.style("fill-opacity", 0.6)
+								.attr("display", "none")
+
+
+
+								})
+
+
+			d3.selectAll(".filter_button").on("change", function() {
+				var type = this.id,
+					display = this.checked ? "inline" : "none"
+
+				svg.selectAll(".symbol")
+					.filter(function(d) {return d.year == type})
+					.style("fill-opacity", 0.1)
+					.attr("display", display)
+
+				svg1.selectAll(".word")
+					.filter(function(d) {return d.year == type})
+					.attr("display", display)
+				})
+
+
+					};
+
+</script>
