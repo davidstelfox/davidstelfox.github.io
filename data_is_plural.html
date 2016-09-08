@@ -57,6 +57,8 @@
 			font-size: 8pt
 		}
 
+
+
 </style>
 
 <head>
@@ -71,6 +73,8 @@
 
 	</script>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
 </head>
 
 
@@ -80,7 +84,7 @@
 
 	<h3>Data Is Plural</h3>
 
-	<p>An ongoing project visualising a dataset each week from the <a href="https://tinyletter.com/data-is-plural">Data Is Plural</a> newsletter sent out weekly by <a href="https://twitter.com/jsvine">Jeremy Singer-Vine</a>.</p>
+	<p>A ten week project visualising a dataset each week from the <a href="https://tinyletter.com/data-is-plural">Data Is Plural</a> newsletter sent out weekly by <a href="https://twitter.com/jsvine">Jeremy Singer-Vine</a>.</p>
 
 
 	<h4>Week 1: UNESCO World Heritage Sites</h4>
@@ -114,4 +118,13 @@
 	<div id="whc"><img src="img/phyAct.svg" height="80%" width="80%"></div>
 
 	<p id="dataSource">Data source: <a href="https://nccd.cdc.gov/NPAO_DTM/IndicatorSummary.aspx?category=71&indicator=36">https://nccd.cdc.gov/NPAO_DTM/IndicatorSummary.aspx?category=71&indicator=36</a></p>
+
+
+	<h4>Week 6: Violent crime in twenty largest cities in the United States</h4>
+
+ 	<p id="visText">The Marshall Project has collected data from the FBI on violent crime in the United States. Below is visualised the data for the top 20 cities by population. Looks like the mid-1990s weren't the best times to live in large cities in the US but things have improved regardless of what some politicians might say.</p>
+
+	<div id="crime"><script type="text/javascript" src="js/UScrime.js"></script></div>
+
+	<p id="dataSource">Data source: <a href="https://github.com/themarshallproject/city-crime">https://github.com/themarshallproject/city-crime</a></p>
 </body>
