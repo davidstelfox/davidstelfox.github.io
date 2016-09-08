@@ -42,7 +42,7 @@
 				.attr("cx", function(d) { return (d.year_no - 1) * gridSize - 5; })
               	.attr("cy", function(d) { return (d.dept_no - 1) * gridSize; })
               	.attr("r", 8)
-              	.style("fill", "white")
+              	.style("fill", "#FFAC80")
               	.style("fill", function(d) {return colorScale(d.violent); })
 
             svg.append("text")
