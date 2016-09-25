@@ -1,0 +1,40 @@
+		.Grid {
+		  display: flex;
+		  padding-left: 20pt;
+		}
+
+		.Grid-cell {
+		  flex: 1;
+		}
+
+		body{
+			font-family: 'Inconsolata',"Lucida Console","Monaco","DejaVu Sans Mono";
+			font-size: 14pt;
+			color: black;
+			background-color: #FFAC80;
+
+		} 
+
+		a{
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover{
+			color: white;
+		}
+
+		hr{
+			border-color: black;
+		}
+
+		#home{
+			text-decoration: none;
+		}
+
+		p, li{
+			font-family: 'Inconsolata',"Lucida Console","Monaco","DejaVu Sans Mono";
+			font-size: 12pt;
+			color: black;
+
+		}
