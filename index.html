@@ -1,59 +1,81 @@
-<!doctype HTML>
-
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23130856-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-	  ga('create', 'UA-80208498-1', 'auto');
-	  ga('send', 'pageview');
+        gtag('config', 'UA-23130856-6');
+    </script>
 
-	</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>David Stelfox</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <style>
+        .navbar-custom {
+            color: black;
+        }
+        
+        .navbar-brand {
+            font-size: 20pt;
+        }
+        
+        h4 {
+            padding-top: 20px;
+        }
+    </style>
 </head>
 
-
 <body>
-	<div class="Grid">
- 		<div class="Grid-cell">
 
- 			<p><a href="http://davidstelfox.github.io/nationalmin.html">Visualisation of companies "named and shamed" by UK government for non-payment of National Living Wage.</a></p>
- 			<hr>
- 			<p><a href="http://davidstelfox.github.io/data_is_plural.html">Visualisations based on datasets from the Data Is Plural newsletter.</a></p>
- 			<hr>
- 			<p><a href="http://davidstelfox.github.io/hlf_map.html">Map displaying the allocation of funding from the UK's Heritage Lottery fund.</a></p>
- 			<hr>
- 			<p><a href="http://davidstelfox.github.io/spotify.html">Report showing how I listened to music in 2015.</a></p>
- 			<hr>
- 			<p><a href="http://davidstelfox.github.io/homelessness.html">Piece highlighting youth homelessness in the UK.</a></p>
- 			<hr>
- 			<p><a href="http://davidstelfox.github.io/moves_maps.html">A years worth of travels around London.</a></p>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="./index.html">David Stelfox</a>
+
+    </nav>
+    <!--/.Navbar-->
+
+    <div class="container mt-3">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="Projects">
+                    <h4>Sound</h4>
+                    <br>
+                    <a href="./60days.html">60 days of microrecordings</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="Projects">
+                    <h4>Images</h4>
+                    <br>
+                    <a href="./pinhole.html">Pinhole Journey</a>
+                </div>
+            </div>
 
 
- 	
 
- 		</div>
-		<div class="Grid-cell">
-		</div>
-			
- 		<div class="Grid-cell">
- 			<p>My name is David Stelfox. I am a data developer, based in London, UK.</p>
- 
-			<p>I use open data to provide insights into social and environmental issues, posing and investigating questions from new angles. I aim to build compelling visualisations that are simultaneously beautiful and insightful, functional and interactive.</p>
- 
-			<p>Currently, I am developing my data visualisation skills, with a focus on d3.js and cartography.</p>	
- 
-			<p>I work in BI and data at a food sustainability charity in London</p>
 
- 			<a href="http://twitter.com/stelfad">Talk to me on Twitter</a>
 
- 		</div>
-	</div>
-
+        </div>
+    </div>
 </body>
+
+</html>

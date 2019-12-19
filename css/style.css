@@ -1,17 +1,12 @@
-		.Grid {
-		  display: flex;
-		  padding-left: 20pt;
-		}
 
-		.Grid-cell {
-		  flex: 1;
-		}
 
+
+		
 		body{
 			font-family: 'Inconsolata',"Lucida Console","Monaco","DejaVu Sans Mono";
 			font-size: 14pt;
 			color: black;
-			background-color: #FFAC80;
+			background-color: white;
 
 		} 
 
@@ -21,7 +16,7 @@
 		}
 
 		a:hover{
-			color: white;
+			color: royalblue;
 		}
 
 		hr{
